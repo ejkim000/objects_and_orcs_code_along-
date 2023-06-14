@@ -239,6 +239,13 @@ console.log(kia.findCar(3));
 // Static
 
 class Person {
+    constructor(name, age, eyeColor, hair) {
+        this.name = name;
+        this.age = age;
+        this.eyeColor = eyeColor;
+        this.hair = hair;
+    }
+
     static eyeColors () {
       return ['blue', 'green', 'brown'];
     }
@@ -246,12 +253,9 @@ class Person {
 }
 
 class SuperHero extends Person {
-    constructor(name, age, hair) {
-        super();
-        this.name = name;
-        this.age = age;
-        this.hair = hair;
-    }
+    // constructor(name, age, eyeColor, hair) {
+    //     super(name, age, eyeColor, hair);
+    // }
 }
 
 const superman = new SuperHero('Clark Kent', 30, Person.eyeColors()[0], 'black');
