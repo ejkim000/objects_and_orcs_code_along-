@@ -137,3 +137,35 @@ jay.eyes = "green"; // update a class peoperty of the obj
 jay.setHairColor('red'); // built-in method: this is better than above way
 
 console.log(jay);
+
+
+
+
+// Make a class inherit attributes from a "parent class"
+
+class Hobbit extends Character {
+    constructor(name, age, eyes, hair) {
+        super(name, age, eyes, hair); // super : parent class, can use both method & property
+        this.skills = ["thievery", "speed", "willpower"];
+    }
+
+    steal () {
+        console.log("Let's get away!")
+    }
+
+    greet (otherCharacter) {
+        console.log('Greetings ' + otherCharacter.name);
+    }
+
+    smite() {
+        super.smite();
+        this.steal();
+    }
+}
+
+const frodo = new Hobbit('Frodo', 80, 'brown', 'black');
+console.log(frodo);
+frodo.smite();
+frodo.steal();
+const ej = new Character('EJ', 20, 'brown', 'black');
+frodo.greet(ej);
