@@ -169,3 +169,94 @@ frodo.smite();
 frodo.steal();
 const ej = new Character('EJ', 20, 'brown', 'black');
 frodo.greet(ej);
+
+
+
+// Factory
+// Sometimes we need to have a factory object that will generate other objects
+// The purpose of the factory is so it can control the creation process in some way
+// This is usually a single object that exists throughout the program that performs a set of functions
+
+// also called a singleton
+
+
+class Car {
+    constructor(make, vin) {
+        this.make = make;
+        this.vin = vin;
+    }
+
+    //method
+    drive() {
+        console.log("vrooooom!")
+    }
+}
+
+
+// create an obj
+
+const hyundai = new Car("Hyundai", 1);
+console.log(hyundai);
+
+class Factory {
+    constructor(company) {
+        this.company = company;
+        this.cars = [];
+    }
+
+    generateCar() {
+        const newCar = new Car(this.company, this.cars.length)
+        this.cars.push(newCar);
+    }
+
+    findCar(index) {
+        return this.cars[index];
+    }
+}
+
+const tesla = new Factory("Tesla");
+console.log(tesla);
+tesla.generateCar();
+console.log(tesla);
+tesla.generateCar();
+console.log(tesla);
+// find car
+console.log(tesla.findCar(0));
+
+
+
+const kia = new Factory("KIA");
+kia.generateCar();
+kia.generateCar();
+kia.generateCar();
+kia.generateCar();
+kia.generateCar();
+console.log(kia);
+console.log(kia.findCar(3));
+
+
+
+// Static
+
+class Person {
+    static eyeColors () {
+      return ['blue', 'green', 'brown'];
+    }
+
+}
+
+class SuperHero extends Person {
+    constructor(name, age, hair) {
+        super();
+        this.name = name;
+        this.age = age;
+        this.hair = hair;
+    }
+}
+
+const superman = new SuperHero('Clark Kent', 30, Person.eyeColors()[0], 'black');
+
+console.log(superman);
+
+
+// The End :)
